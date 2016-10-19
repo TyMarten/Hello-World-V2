@@ -27,6 +27,8 @@ namespace Hello_World_V2
 {
     public partial class frmHelloWorldV2 : Form
     {
+        private static string previousUserAnswer;
+
         //creates a new version of the frm can be used to change to robots question
         public frmHelloWorldV2()
         {
@@ -34,9 +36,10 @@ namespace Hello_World_V2
             lblOutput.Text = "Hello there... ummmm whats your name again";
         }
         //puts the new question in the question box (output)
-        public frmHelloWorldV2(string newQuestion)
+        public frmHelloWorldV2(string answer,string newQuestion)
         {
             InitializeComponent();
+            previousUserAnswer = answer;
             lblOutput.Text = newQuestion;
         }
 
@@ -47,18 +50,31 @@ namespace Hello_World_V2
 
         private void btnSpeak_Click(object sender, EventArgs e)
         {
+            string currentUserAnswer = txtInput.Text;
             //checks if the output (the robots question) is still Hello there... ummmm whats your name again
             if ( (lblOutput.Text).Equals("Hello there... ummmm whats your name again") == true)
             {
-                //turns the inputted text into all uper cases, and if the answer is equal to YES 
-                if ( (txtInput.Text).ToUpper().Equals("YES"))
-                {
+                //Second Time the frm is used, then gets the users name then closes the frm
+                frmHelloWorldV2 secondTime = new frmHelloWorldV2(currentUserAnswer, currentUserAnswer + " Of course, What is the square root of 841. ");
+                secondTime.Show();
+                this.Hide();
+            }
 
+            if ((lblOutput.Text).Equals( previousUserAnswer + " Of course, What is the square root of 841. ") == true) 
+            {
+                if (currentUserAnswer == 29) 
+                {
+                    frmHelloWorldV2 thirdTime = new frmHelloWorldV2(currentUserAnswer, "Thanks NERD im done my homework now");
+
+                } else {
+                    frmHelloWorldV2 thirdTime = new frmHelloWorldV2(currentUserAnswer, "Thats not the right answer leave... NOW!");
+                    this.Close();
                 }
+
+
             }
 
 
-           
         }
     }
 }

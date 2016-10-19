@@ -38,7 +38,7 @@
             // 
             this.lblOutput.BackColor = System.Drawing.Color.Transparent;
             this.lblOutput.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOutput.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblOutput.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblOutput.Location = new System.Drawing.Point(105, 88);
             this.lblOutput.Name = "lblOutput";
             this.lblOutput.Size = new System.Drawing.Size(179, 119);
